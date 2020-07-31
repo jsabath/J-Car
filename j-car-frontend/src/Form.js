@@ -5,6 +5,7 @@ class Form extends React.Component{
   state = {
     make: '',
     model: '',
+    year: '',
     carImage: ''
   }
 
@@ -17,14 +18,15 @@ class Form extends React.Component{
 
   handleSubmit(event){
     event.preventDefault()
-    console.log(event)
-    this.props.getCar(this.state.carImage)
-    // this.setState({
-    //   // make: event.target.value,
-    //   // model: event.target.value,
-    //   carImage: event.firstChild.innerHTML
-    // })
+    this.props.getCar(this.state.make, this.state.model, this.state.year)
   }
+
+  clearSearch = (event) => {
+    event.preventDefault()
+    event.target.reset()
+    this.setState({make: '', model: '', year: '', carImage: ''})
+  }
+
 
   render(){
     return(
@@ -41,7 +43,14 @@ class Form extends React.Component{
             placeholder='Model'
             onChange={(event)=> this.handleChange(event)}
           />
-          <button type='submit'>Submit</button>
+          <input
+            name='year'
+            type='text'
+            placeholder='Year'
+            onChange={(event) => this.handleChange(event)}
+          />
+          <button type='submit'>Search</button>
+          <button type='submit' onClick = {(event) => this.clearSearch(event)}>Clear Search</button>
         </form>
     )
   }

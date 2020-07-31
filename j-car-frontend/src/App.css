@@ -4,9 +4,20 @@ height: 60vw;
 background-color: rgb(255, 217, 0);
 }
 
+img{
+  max-width: 75vw;
+  max-height: 75vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 50px;
+  width: 50%;
+}
+
 h1{
-  background-color: rgb(255, 217, 0);
+  background-color: green;
   font-size: 50px;
+  color: white
 }
 
 .car-form{
